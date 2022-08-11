@@ -35,6 +35,7 @@
     pkgs.go_1_17
     pkgs.yubikey-manager
     pkgs.fwupd
+    pkgs.libreoffice-fresh
     pkgs.php81
   ];
 
