@@ -14,25 +14,18 @@
     unfreePkgs.vscode-fhs
     (unfreePkgs.jetbrains.phpstorm.overrideAttrs (old: rec {
       name = "phpstorm-${version}";
-      version = "2022.2";
+      version = "2022.3";
       src = pkgs.fetchurl {
         url = "https://download.jetbrains.com/webide/PhpStorm-${version}.tar.gz";
-        sha256 = "1x4m2kihvwbgs3g1sg71fcj7fxic3kplwarpjiwqw096ih3nvjci";
+        sha256 = "sha256-91+eg58SCqbwJtLDikxRH9K46TfQcdE40Io+FFGJWa4=";
       };
     }))
-    (unfreePkgs.jetbrains.goland.overrideAttrs (old: rec {
-      name = "goland-${version}";
-      version = "2022.2";
-      src = pkgs.fetchurl {
-        url = "https://download.jetbrains.com/go/${name}.tar.gz";
-        sha256 = "1val6sz06ikqzq8xy33bd3bbc9mq5xf5rslaaj75znaq0vl0dk4l";
-      };
-    }))
+    unfreePkgs.jetbrains.goland
     pkgs.ripgrep
     pkgs.gnome.gnome-tweaks
     pkgs.vault
     pkgs.terraform
-    pkgs.go_1_17
+    pkgs.go_1_19
     pkgs.yubikey-manager
     pkgs.fwupd
     pkgs.libreoffice-fresh
