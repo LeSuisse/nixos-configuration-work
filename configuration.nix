@@ -120,7 +120,10 @@
   virtualisation.virtualbox.host.enable = true;
   users.extraGroups.vboxusers.members = [ "tgerbet" ];
 
-  services.yubikey-agent.enable = true;
+  services.yubikey-agent= {
+    enable = true;
+    package = pkgs.callPackage ./yubikey-agent.nix { };
+  };
   programs.gnupg.agent.pinentryFlavor = "gnome3";
 
   environment.etc = {
