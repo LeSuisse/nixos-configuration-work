@@ -6,11 +6,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };   
-  outputs = { self, nixpkgs, home-manager, nixos-hardware }: {
+  outputs = { self, nixpkgs, lanzaboote, home-manager, nixos-hardware }: {
     nixosConfigurations.work = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        lanzaboote.nixosModules.lanzaboote
         nixos-hardware.nixosModules.lenovo-thinkpad-t480
         ./configuration.nix
         home-manager.nixosModules.home-manager
