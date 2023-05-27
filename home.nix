@@ -12,22 +12,13 @@
     pkgs.chromium
     pkgs.vlc
     unfreePkgs.vscode-fhs
-    (unfreePkgs.jetbrains.phpstorm.overrideAttrs (old: rec {
-      name = "phpstorm-${version}";
-      version = "2022.3";
-      src = pkgs.fetchurl {
-        url = "https://download.jetbrains.com/webide/PhpStorm-${version}.tar.gz";
-        sha256 = "sha256-91+eg58SCqbwJtLDikxRH9K46TfQcdE40Io+FFGJWa4=";
-      };
-    }))
-    unfreePkgs.jetbrains.goland
+    unfreePkgs.jetbrains-toolbox
     pkgs.ripgrep
     pkgs.gnome.gnome-tweaks
     pkgs.vault
     pkgs.terraform
-    pkgs.go_1_19
+    pkgs.go_1_20
     pkgs.yubikey-manager
-    pkgs.fwupd
     pkgs.libreoffice-fresh
     pkgs.php81
   ];

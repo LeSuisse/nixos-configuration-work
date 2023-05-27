@@ -107,7 +107,9 @@
   services.udev.packages = [ pkgs.yubikey-personalization ];
   services.pcscd.enable = true;
 
-  environment.systemPackages = [ pkgs.vim pkgs.htop pkgs.git pkgs.pinentry ];
+  services.fwupd.enable = true;
+
+  environment.systemPackages = [ pkgs.vim pkgs.htop pkgs.git pkgs.pinentry-gnome ];
 
   virtualisation.docker = {
     enable = true;
@@ -122,7 +124,6 @@
 
   services.yubikey-agent= {
     enable = true;
-    package = pkgs.callPackage ./yubikey-agent.nix { };
   };
   programs.gnupg.agent.pinentryFlavor = "gnome3";
 
@@ -142,7 +143,7 @@
   '';
 
   networking.extraHosts = ''
-    172.18.0.6 tuleap-web.tuleap-aio-dev.docker
+    172.18.0.7 tuleap-web.tuleap-aio-dev.docker
   '';
 
   system.stateVersion = "21.11";
@@ -154,5 +155,6 @@
     '';
     settings.auto-optimise-store = true;
   };
+  systemd.services.nix-daemon.serviceConfig.LimitNOFILE = lib.mkForce 1048576;
 }
 
