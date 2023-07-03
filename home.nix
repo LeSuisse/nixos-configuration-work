@@ -59,6 +59,13 @@
     '';
   };
 
+  programs.atuin = {
+    enable = true;
+    flags = [
+      "--disable-up-arrow"
+    ];
+  };
+
   gtk = {
     enable = true;
     theme.name = "Adwaita-dark";
