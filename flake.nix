@@ -7,7 +7,7 @@
     };
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     lanzaboote = {
-      url = "github:nix-community/lanzaboote";
+      url = "github:nix-community/lanzaboote/v0.3.0";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };   
