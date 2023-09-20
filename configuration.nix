@@ -38,21 +38,30 @@
   };
 
   networking.hostId = "1003f3bb";
-  networking.hostName = "work";
+  networking.hostName = "ENA-LAP-00068";
   time.timeZone = "Europe/Paris";
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "displaylink"
+  ];
 
   i18n.defaultLocale = "fr_FR.UTF-8";
   console.keyMap = "fr";
 
-  services.xserver.enable = true;
-  services.xserver.layout = "fr";
-
-  services.xserver.displayManager.gdm = {
+  services.xserver = {
     enable = true;
-    autoSuspend = false;
+    layout = "fr";
+    videoDrivers = [ "displaylink" "modesetting" ];
+    displayManager.gdm = {
+      enable = true;
+      autoSuspend = false;
+    };
+    desktopManager.gnome.enable = true;
+    excludePackages = [
+      pkgs.xterm
+    ];
   };
-  services.xserver.desktopManager.gnome.enable = true;
-  
+
   environment.gnome.excludePackages = [
     pkgs.gnome.cheese
     pkgs.gnome-photos

@@ -12,11 +12,11 @@
     };
   };   
   outputs = { self, nixpkgs, lanzaboote, home-manager, nixos-hardware }: {
-    nixosConfigurations.work = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.ENA-LAP-00068 = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         lanzaboote.nixosModules.lanzaboote
-        nixos-hardware.nixosModules.lenovo-thinkpad-t480
+        nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen3
         ./configuration.nix
         home-manager.nixosModules.home-manager
         {
