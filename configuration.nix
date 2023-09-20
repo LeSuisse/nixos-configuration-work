@@ -150,7 +150,7 @@
   '';
 
   networking.extraHosts = ''
-    172.18.0.7 tuleap-web.tuleap-aio-dev.docker
+    172.18.0.6 tuleap-web.tuleap-aio-dev.docker
   '';
 
   system.stateVersion = "21.11";
