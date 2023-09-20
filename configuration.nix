@@ -112,7 +112,7 @@
     enable = true;
     authFile = pkgs.writeText "u2f_mappings"
       ''
-      tgerbet:Tuz5/+zmD12ghZ1sKbGfbTYbTqaX7wh+ezUEWUdjskSFrB4Izr1D1ehfSLlHiU0nBe0diyWtKg9pflCSGmlflQ==,/FfU0Qz/P2NDigZ9Bp2cokR+vkm9PzBA3WjVWVXL9SeAIEpWwrRTOG/PeWwD+62XcysQWBLGXl0VDmTRLb6pmQ==,es256,+presence
+      tgerbet:dtYze5ynmnANz+CGvDDmwEXds8ETNwrN3Z4fdv7W5HeQrzHnzydaEAvHXuHRWbZjwypbj/Ossr+rNUR2/ho8Ww==,WeNoJdnRloZPBjBKc11j1Y4Y63YqG+BBXG/f6srwtjQXQW7TCR+x/lNKOvyaxnK+W0K6ptHBP6QtlnXqUeysGA==,es256,+presence
       '';
     control = "sufficient";
     cue = true;
