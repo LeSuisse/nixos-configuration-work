@@ -77,6 +77,12 @@
     pkgs.gnome-tour
     pkgs.gnome.geary
     pkgs.gnome.gnome-maps
+    pkgs.gnome.gnome-contacts
+    pkgs.gnome.yelp
+    pkgs.gnome.gnome-contacts
+    pkgs.gnome.gnome-initial-setup
+    pkgs.gnome.gnome-calendar
+    pkgs.gnome.gnome-logs
     pkgs.epiphany
   ];
 

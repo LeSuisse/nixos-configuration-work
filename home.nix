@@ -1,14 +1,7 @@
 { config, pkgs, unfreePkgs, ... }:
 {
   home.packages = [
-    (pkgs.symlinkJoin {
-      name = "firefox";
-      paths = [ pkgs.firefox-wayland ];
-      buildInputs = [ pkgs.makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/firefox --set GTK_THEME Adwaita:light
-      '';
-    })
+    pkgs.firefox
     pkgs.chromium
     pkgs.vlc
     unfreePkgs.vscode-fhs
@@ -72,11 +65,30 @@
   };
 
   dconf.settings = {
+    "org/gnome/calculator" = {
+      button-mode = "programming";
+    };
+    "org/gnome/desktop/calendar" = {
+      show-weekdate = "true";
+    };
     "org/gnome/desktop/wm/preferences" = {
       button-layout = "appmenu:minimize,maximize,close";
     };
-    "org/gnome/calculator" = {
-      button-mode = "programming";
+    "org/gnome/desktop/interface" = {
+      color-scheme = "prefer-dark";
+    };
+    "org/gnome/shell" = {
+      favorite-apps = [
+        "firefox.desktop"
+        "org.gnome.Nautilus.desktop"
+        "org.gnome.Console.desktop"
+      ];
+    };
+    "org/gnome/desktop/sound" = {
+      event-sounds = "false";
+    };
+    "org/gnome/settings-daemon/plugins/media-keys" = {
+      mic-mute = [ "<Super>Insert" ];
     };
   };
 
