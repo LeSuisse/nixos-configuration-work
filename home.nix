@@ -5,7 +5,7 @@
     pkgs.chromium
     pkgs.vlc
     unfreePkgs.vscode-fhs
-    unfreePkgs.jetbrains-toolbox
+    unfreePkgs.jetbrains.phpstorm
     pkgs.ripgrep
     pkgs.gnome.gnome-tweaks
     pkgs.vault
@@ -14,6 +14,8 @@
     pkgs.yubikey-manager
     pkgs.libreoffice-fresh
     pkgs.php81
+    pkgs.gitFull
+    pkgs.dig
   ];
 
   home.sessionVariables = {
