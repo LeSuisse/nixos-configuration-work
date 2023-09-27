@@ -1,4 +1,4 @@
-{ config, pkgs, lib, ... }:
+{ config, pkgs, unstablePkgs, lib, ... }:
 
 {
   imports =
@@ -167,6 +167,12 @@
   networking.extraHosts = ''
     172.18.0.6 tuleap-web.tuleap-aio-dev.docker
   '';
+
+  services.tailscale = {
+    enable = true;
+    package = unstablePkgs.tailscale;
+    useRoutingFeatures = "client";
+  };
 
   system.stateVersion = "21.11";
 

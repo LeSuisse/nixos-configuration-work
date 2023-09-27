@@ -12,9 +12,13 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };   
-  outputs = { self, nixpkgs, unstable, lanzaboote, home-manager, nixos-hardware }: {
+  outputs = { self, nixpkgs, unstable, lanzaboote, home-manager, nixos-hardware }:
+  let
+    system = "x86_64-linux";
+  in {
     nixosConfigurations.ENA-LAP-00068 = nixpkgs.lib.nixosSystem {
-      system = "x86_64-linux";
+      inherit system;
+      specialArgs = { unstablePkgs = unstable.legacyPackages.${system}; };
       modules = [
         lanzaboote.nixosModules.lanzaboote
         nixos-hardware.nixosModules.lenovo-thinkpad-t14-amd-gen3
@@ -24,7 +28,7 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.tgerbet = import ./home.nix;
-          home-manager.extraSpecialArgs = { unfreePkgs = import unstable { config.allowUnfree = true; system = "x86_64-linux"; }; };
+          home-manager.extraSpecialArgs = { unfreePkgs = import unstable { config.allowUnfree = true; inherit system; }; };
         }
       ];
     };
