@@ -4,7 +4,7 @@
     pkgs.firefox
     pkgs.chromium
     pkgs.vlc
-    unfreePkgs.vscode-fhs
+    unfreePkgs.vscodium-fhs
     unfreePkgs.jetbrains.phpstorm
     pkgs.ripgrep
     pkgs.gnome.gnome-tweaks
