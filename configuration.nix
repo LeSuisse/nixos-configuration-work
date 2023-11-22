@@ -164,6 +164,8 @@
     Defaults lecture = never
   '';
 
+  zramSwap.enable = true;
+
   networking.extraHosts = ''
     172.18.0.6 tuleap-web.tuleap-aio-dev.docker
   '';

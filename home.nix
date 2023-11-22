@@ -82,8 +82,8 @@
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
-        "org.gnome.Nautilus.desktop"
         "org.gnome.Console.desktop"
+        "org.gnome.Nautilus.desktop"
       ];
     };
     "org/gnome/desktop/sound" = {
