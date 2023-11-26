@@ -9,7 +9,7 @@
     pkgs.ripgrep
     pkgs.gnome.gnome-tweaks
     pkgs.vault
-    pkgs.terraform
+    unfreePkgs.terraform
     pkgs.go_1_20
     pkgs.yubikey-manager
     pkgs.libreoffice-fresh

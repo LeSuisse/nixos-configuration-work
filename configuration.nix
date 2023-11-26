@@ -108,7 +108,7 @@
     users.tgerbet = {
       isNormalUser = true;
       description = "Thomas Gerbet";
-      passwordFile = "/persist/passwords/tgerbet";
+      hashedPasswordFile = "/persist/passwords/tgerbet";
       group = "tgerbet";
       extraGroups = [ "wheel" "docker" ];
     };
