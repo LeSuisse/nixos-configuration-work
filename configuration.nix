@@ -166,6 +166,9 @@
 
   zramSwap.enable = true;
 
+  # CVE-2023-45866
+  hardware.bluetooth.input.General.ClassicBondedOnly = true;
+
   networking.extraHosts = ''
     172.18.0.6 tuleap-web.tuleap-aio-dev.docker
   '';
