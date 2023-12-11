@@ -140,9 +140,6 @@
 
   systemd.enableUnifiedCgroupHierarchy = false;
 
-  virtualisation.virtualbox.host.enable = true;
-  users.extraGroups.vboxusers.members = [ "tgerbet" ];
-
   services.yubikey-agent= {
     enable = true;
   };

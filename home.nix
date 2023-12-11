@@ -8,6 +8,7 @@
     unfreePkgs.jetbrains.phpstorm
     pkgs.ripgrep
     pkgs.gnome.gnome-tweaks
+    pkgs.gnome.gnome-boxes
     pkgs.vault
     unfreePkgs.terraform
     pkgs.go_1_20
