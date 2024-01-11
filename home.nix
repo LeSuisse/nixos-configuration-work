@@ -11,10 +11,10 @@
     pkgs.gnome.gnome-boxes
     pkgs.vault
     unfreePkgs.terraform
-    pkgs.go_1_20
+    pkgs.go_1_21
     pkgs.yubikey-manager
     pkgs.libreoffice-fresh
-    pkgs.php81
+    pkgs.php82
     pkgs.gitFull
     pkgs.dig
   ];
