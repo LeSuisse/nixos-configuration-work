@@ -114,7 +114,7 @@
 
   services.xserver = {
     enable = true;
-    layout = "fr";
+    xkb.layout = "fr";
     videoDrivers = [ "displaylink" "modesetting" ];
     displayManager.gdm = {
       enable = true;
@@ -194,7 +194,7 @@
 
   services.fwupd.enable = true;
 
-  environment.systemPackages = [ pkgs.vim pkgs.htop pkgs.git pkgs.pinentry-gnome ];
+  environment.systemPackages = [ pkgs.vim pkgs.htop pkgs.git ];
 
   virtualisation.docker = {
     enable = true;
@@ -202,12 +202,10 @@
     liveRestore = false;
   };
 
-  systemd.enableUnifiedCgroupHierarchy = false;
-
   services.yubikey-agent = {
     enable = true;
   };
-  programs.gnupg.agent.pinentryFlavor = "gnome3";
+  programs.gnupg.agent.pinentryPackage = pkgs.pinentry-gnome3;
 
   environment.etc = {
     "NetworkManager/system-connections".source = "/persist/etc/NetworkManager/system-connections";
@@ -241,10 +239,10 @@
   };
   systemd.services.tailscaled.serviceConfig.BindPaths = "/persist/var/lib/tailscale:/var/lib/tailscale";
 
-  system.stateVersion = "21.11";
+  system.stateVersion = "24.05";
 
   nix = {
-    package = pkgs.nixUnstable;
+    package = pkgs.nixVersions.latest;
     extraOptions = ''
       experimental-features = nix-command flakes
     '';
