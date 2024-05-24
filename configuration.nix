@@ -23,8 +23,10 @@
     "nohibernate"
     # Enable page allocator randomization
     "page_alloc.shuffle=1"
-    # Slab/slub sanity checks, redzoning, and poisoning
-    "slub_debug=FZP"
+    # Don't merge slabs
+    "slab_nomerge"
+    # Disable debugfs
+    "debugfs=off"
   ];
 
   boot.initrd.postDeviceCommands = lib.mkAfter ''
@@ -67,6 +69,11 @@
     "net.ipv4.conf.default.secure_redirects" = false;
     "net.ipv6.conf.all.accept_redirects" = false;
     "net.ipv6.conf.default.accept_redirects" = false;
+    # Swap on zram optimization
+    "vm.page-cluster" = 0;
+    "vm.swappiness" = 180;
+    "vm.watermark_boost_factor" = 0;
+    "vm.watermark_scale_factor" = 125;
   };
   # See https://github.com/NixOS/nixpkgs/blob/master/nixos/modules/profiles/hardened.nix#L52
   boot.blacklistedKernelModules = [
@@ -197,7 +204,7 @@
 
   systemd.enableUnifiedCgroupHierarchy = false;
 
-  services.yubikey-agent= {
+  services.yubikey-agent = {
     enable = true;
   };
   programs.gnupg.agent.pinentryFlavor = "gnome3";

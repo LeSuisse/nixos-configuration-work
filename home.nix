@@ -9,7 +9,7 @@
     pkgs.ripgrep
     pkgs.gnome.gnome-tweaks
     pkgs.gnome.gnome-boxes
-    pkgs.vault
+    unfreePkgs.vault-bin
     unfreePkgs.terraform
     pkgs.go_1_21
     pkgs.yubikey-manager
@@ -60,6 +60,14 @@
     flags = [
       "--disable-up-arrow"
     ];
+    package = unfreePkgs.atuin.overrideAttrs (old: {
+      patches = [
+        (pkgs.fetchpatch {
+          url = "https://raw.githubusercontent.com/Mic92/dotfiles/f408fe225a353b9f9637b9b23e2fff2183687a38/home-manager/pkgs/atuin/0001-make-atuin-on-zfs-fast-again.patch";
+          hash = "sha256-i0kBQPr/oubW3i/BaAXx2CQx2OMN+iIAIGhz60+Qft8=";
+        })
+      ];
+    });
   };
 
   gtk = {

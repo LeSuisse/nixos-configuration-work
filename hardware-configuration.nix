@@ -48,9 +48,9 @@
       options = [ "noatime" ];
     };
 
-  swapDevices =
-    [ { device = "/dev/disk/by-partuuid/f221bd81-c179-c349-840e-8283c576139a"; randomEncryption.enable = true; }
-    ];
+  #swapDevices =
+  #  [ { device = "/dev/disk/by-partuuid/f221bd81-c179-c349-840e-8283c576139a"; randomEncryption.enable = true; }
+  #  ];
 
   powerManagement.cpuFreqGovernor = lib.mkDefault "powersave";
   hardware.cpu.amd.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
