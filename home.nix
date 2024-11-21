@@ -7,11 +7,11 @@
     unfreePkgs.vscodium-fhs
     unfreePkgs.jetbrains.phpstorm
     pkgs.ripgrep
-    pkgs.gnome.gnome-tweaks
-    pkgs.gnome.gnome-boxes
+    pkgs.gnome-tweaks
+    pkgs.gnome-boxes
     unfreePkgs.vault-bin
     unfreePkgs.terraform
-    pkgs.go_1_21
+    pkgs.go_1_23
     pkgs.yubikey-manager
     pkgs.libreoffice-fresh
     pkgs.php82

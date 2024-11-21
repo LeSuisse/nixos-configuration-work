@@ -14,11 +14,13 @@
     enable = true;
     pkiBundle = "/etc/secureboot";
   };
+  boot.tmp.cleanOnBoot = true;
 
   hardware.enableRedistributableFirmware = true;
 
   boot.supportedFilesystems = [ "zfs" ];
   boot.zfs.devNodes = "/dev";
+  #boot.kernelPackages = nixpkgsOlderKernel.linuxPackages_6_6;
   boot.kernelParams = [
     "nohibernate"
     # Enable page allocator randomization
@@ -127,26 +129,26 @@
   };
 
   environment.gnome.excludePackages = [
-    pkgs.gnome.cheese
+    pkgs.cheese
     pkgs.gnome-photos
-    pkgs.gnome.gnome-music
-    pkgs.gnome.simple-scan
+    pkgs.gnome-music
+    pkgs.simple-scan
     pkgs.gnome-connections
-    pkgs.gnome.gnome-weather
-    pkgs.gnome.totem
-    pkgs.gnome.tali
-    pkgs.gnome.iagno
-    pkgs.gnome.hitori
-    pkgs.gnome.atomix
+    pkgs.gnome-weather
+    pkgs.totem
+    pkgs.tali
+    pkgs.iagno
+    pkgs.hitori
+    pkgs.atomix
     pkgs.gnome-tour
-    pkgs.gnome.geary
-    pkgs.gnome.gnome-maps
-    pkgs.gnome.gnome-contacts
-    pkgs.gnome.yelp
-    pkgs.gnome.gnome-contacts
-    pkgs.gnome.gnome-initial-setup
-    pkgs.gnome.gnome-calendar
-    pkgs.gnome.gnome-logs
+    pkgs.geary
+    pkgs.gnome-maps
+    pkgs.gnome-contacts
+    pkgs.yelp
+    pkgs.gnome-contacts
+    pkgs.gnome-initial-setup
+    pkgs.gnome-calendar
+    pkgs.gnome-logs
     pkgs.epiphany
   ];
 
@@ -180,12 +182,14 @@
 
   security.pam.u2f = {
     enable = true;
-    authFile = pkgs.writeText "u2f_mappings"
-      ''
-      tgerbet:dtYze5ynmnANz+CGvDDmwEXds8ETNwrN3Z4fdv7W5HeQrzHnzydaEAvHXuHRWbZjwypbj/Ossr+rNUR2/ho8Ww==,WeNoJdnRloZPBjBKc11j1Y4Y63YqG+BBXG/f6srwtjQXQW7TCR+x/lNKOvyaxnK+W0K6ptHBP6QtlnXqUeysGA==,es256,+presence
-      '';
     control = "sufficient";
-    cue = true;
+    settings = {
+      authFile = pkgs.writeText "u2f_mappings"
+        ''
+        tgerbet:MuoDCEJrerjYx28BTsv0FA5QnytTjWP3TJLHYW59GUGpl4DOsueC6cPNufA1IdVDQlZZ/oJrRkU+U/koc9Ituw==,Wy3CPJyT0KSBr33Vv0BBOZBgLprg/lWGmEyVupqIRq1EnfYe0gY0oTiA94FBL3q7XggspqAoGuLo2DGjHtSBRg==,es256,+presence
+        '';
+      cue = true;
+    };
   };
   security.pam.services.auth.u2fAuth = true;
 
