@@ -31,7 +31,7 @@
     "debugfs=off"
   ];
 
-  boot.initrd.postDeviceCommands = lib.mkAfter ''
+  boot.initrd.postResumeCommands = lib.mkAfter ''
     zfs rollback -r tank/system/root@blank
   '';
 
