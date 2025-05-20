@@ -25,6 +25,7 @@
       allow hash "r255KJIIpV4M314Eo0HqqSx6OHdDVEMSJvCOby3oSK8=" # Hub
       allow hash "ILNcnIRUGuv0jCrjR5DM6GJGsCkV9tWx/flaidHN2rI=" # Hub
       allow hash "LBV1U4rNBXyWhdQ6zsac2Qo472jWNTBqOeaJP9rUnuE=" # Hub
+      allow hash "WdV4xLeUaKdU0cUxojDR6LqDwdW0BB6wsExS5wvB7mo=" # Hub
       allow hash "kXJQxbZwmkrG6r5PXEOto4JrR7nKCNbG8CIcm8WJe80=" # External mic
       allow hash "+r3EEFJKf9hVZ/KywO/KODwyNkTXiyI5mzgtLgN9r7Q=" # External webcam
       allow hash "QAUP826MbSSvZRtz0pO3TQeA8cDKNYeMrwu8ll0cH/0=" # Headset
