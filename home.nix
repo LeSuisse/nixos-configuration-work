@@ -19,6 +19,7 @@
     pkgs.dig
     pkgs.rdap
     pkgs.whois
+    pkgs.jq
   ];
 
   home.sessionVariables = {
@@ -57,11 +58,7 @@
     flags = [
       "--disable-up-arrow"
     ];
-    package = unfreePkgs.atuin.overrideAttrs (old: {
-      patches = [
-        ./atuin-zfs-fast.patch
-      ];
-    });
+    daemon.enable = true;
   };
 
   gtk = {
