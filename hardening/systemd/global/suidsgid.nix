@@ -21,6 +21,7 @@ in
   config = {
     systemd.services = {
       suid-sgid-wrappers.serviceConfig.RestrictSUIDSGID = false;
+      docker.serviceConfig.RestrictSUIDSGID = false;
     };
   };
 }
