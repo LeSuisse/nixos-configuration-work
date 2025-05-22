@@ -186,7 +186,7 @@
   };
   systemd.services.tailscaled.serviceConfig.BindPaths = "/persist/var/lib/tailscale:/var/lib/tailscale";
 
-  system.stateVersion = "24.11";
+  system.stateVersion = "25.05";
 
   nix = {
     package = pkgs.lixPackageSets.latest.lix;
