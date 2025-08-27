@@ -14,8 +14,9 @@
     pkgs.go_1_23
     pkgs.yubikey-manager
     pkgs.libreoffice-fresh
-    pkgs.php82
+    pkgs.php84
     pkgs.gitFull
+    pkgs.git-lfs
     pkgs.dig
     pkgs.rdap
     pkgs.whois
