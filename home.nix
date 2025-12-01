@@ -15,8 +15,6 @@
     pkgs.yubikey-manager
     pkgs.libreoffice-fresh
     pkgs.php84
-    pkgs.gitFull
-    pkgs.git-lfs
     pkgs.dig
     pkgs.rdap
     pkgs.whois
@@ -53,6 +51,38 @@
 
     '';
   };
+
+  programs.ssh = {
+    enable = true;
+    matchBlocks = {
+      "*" = {
+        identityAgent = "/run/user/1000/yubikey-agent/yubikey-agent.sock";
+        identityFile = "/home/tgerbet/.ssh/yubikey-agent.pub";
+      };
+    };
+  };
+
+  programs.git = {
+    enable = true;
+    package = pkgs.gitFull;
+    userName = "Thomas Gerbet";
+    userEmail = "thomas.gerbet@enalean.com";
+    signing = {
+      format = "ssh";
+      key = "/home/tgerbet/.ssh/yubikey.pub";
+    };
+    extraConfig = {
+      push.default = "simple";
+    };
+    lfs.enable = true;
+    difftastic = {
+      enable = true;
+      background = "dark";
+      display = "inline";
+    };
+  };
+
+  programs.mergiraf.enable = true;
 
   programs.atuin = {
     enable = true;
