@@ -58,17 +58,22 @@
   console.keyMap = "fr";
 
   services.xserver = {
-    enable = true;
     xkb.layout = "fr";
     videoDrivers = [ "displaylink" "modesetting" ];
-    displayManager.gdm = {
-      enable = true;
-      autoSuspend = false;
-    };
-    desktopManager.gnome.enable = true;
-    excludePackages = [
-      pkgs.xterm
-    ];
+  };
+
+  services.displayManager.gdm = {
+    enable = true;
+    autoSuspend = false;
+  };
+
+  services.desktopManager.gnome = {
+    enable = true;
+  };
+
+  services.gnome = {
+    core-developer-tools.enable = true;
+    games.enable = false;
   };
 
   environment.gnome.excludePackages = [
@@ -79,10 +84,6 @@
     pkgs.gnome-connections
     pkgs.gnome-weather
     pkgs.totem
-    pkgs.tali
-    pkgs.iagno
-    pkgs.hitori
-    pkgs.atomix
     pkgs.gnome-tour
     pkgs.geary
     pkgs.gnome-maps
@@ -141,7 +142,7 @@
 
   services.fwupd.enable = true;
 
-  environment.systemPackages = [ pkgs.vim pkgs.htop pkgs.git ];
+  environment.systemPackages = [ pkgs.vim pkgs.htop pkgs.displaylink ];
 
   virtualisation.docker = {
     enable = true;

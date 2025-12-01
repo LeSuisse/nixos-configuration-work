@@ -11,7 +11,7 @@
     pkgs.gnome-boxes
     unfreePkgs.vault-bin
     unfreePkgs.terraform
-    pkgs.go_1_23
+    pkgs.go_1_25
     pkgs.yubikey-manager
     pkgs.libreoffice-fresh
     pkgs.php84
@@ -54,6 +54,7 @@
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
     matchBlocks = {
       "*" = {
         identityAgent = "/run/user/1000/yubikey-agent/yubikey-agent.sock";
@@ -62,27 +63,33 @@
     };
   };
 
-  programs.git = {
+  programs.difftastic = {
     enable = true;
-    package = pkgs.gitFull;
-    userName = "Thomas Gerbet";
-    userEmail = "thomas.gerbet@enalean.com";
-    signing = {
-      format = "ssh";
-      key = "/home/tgerbet/.ssh/yubikey.pub";
-    };
-    extraConfig = {
-      push.default = "simple";
-    };
-    lfs.enable = true;
-    difftastic = {
-      enable = true;
+    git.enable = true;
+    options = {
       background = "dark";
       display = "inline";
     };
   };
 
   programs.mergiraf.enable = true;
+
+  programs.git = {
+    enable = true;
+    package = pkgs.gitFull;
+    settings = {
+      user = {
+        name = "Thomas Gerbet";
+        email = "thomas.gerbet@enalean.com";
+      };
+      push.default = "simple";
+    };
+    signing = {
+      format = "ssh";
+      key = "/home/tgerbet/.ssh/yubikey.pub";
+    };
+    lfs.enable = true;
+  };
 
   programs.atuin = {
     enable = true;

@@ -19,7 +19,7 @@
       allow hash "mTdOffb7mmvXIBSsKY1Hwrfi8DYYO/Xgrk08IXikyTs=" # Hub
       allow hash "bCcnMVE8/SnBApnpwjQ5W3SYyVBU7sqDfFcM5UFLNz0=" # Hub
       allow hash "8b8zBAJ2E2H+F5kJY3VOV+MHz3/54QQUnxBnArGBgVc=" # Hub
-      allow hash "sibU7XPKa0uHv8C9vYaOt6arbkDUbMfyoP1QIXTy2JM=" # Dock
+      allow hash "ZnUNQGWjMSYwpU/qOKA6r6genSs+Eu8v/9b6sBhs9y8=" # Dock
       allow hash "5WDr9ntSnFdccsOWiXKgSqrJmp3MdOdyu2N5DoXt+xk=" # LAN Dock
       allow hash "WNJV1t5LPJQonobotnmsPGxF9G+BkFyagO5uEuQ6f+8=" # Hub
       allow hash "r255KJIIpV4M314Eo0HqqSx6OHdDVEMSJvCOby3oSK8=" # Hub
